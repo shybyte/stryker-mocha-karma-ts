@@ -1,23 +1,17 @@
 import {assert} from "chai";
-import {add, hello} from "../src/code";
+import {addNatural, hello} from "../src/code";
+import {subNatural} from "../src/sub";
 
-describe('add', function () {
+describe('addNatural', function () {
   it('add 1 + 2', function () {
-    assert.equal(add(1, 2), 3);
+    assert.equal(addNatural(1, 2), 3);
   });
 
-  // it('add null and null', function () {
-  //   assert.throws(function () {
-  //     add(null, undefined)
-  //   })
-  // });
-
-  // it('add 1 and null', function () {
-  //   assert.throws(function () {
-  //     add(1, undefined)
-  //   })
-  // });
-
+  it('add negative numbers', function () {
+    assert.throws(function () {
+      addNatural(-1, -1);
+    })
+  });
 });
 
 describe('hello', function () {
@@ -26,4 +20,9 @@ describe('hello', function () {
   });
 });
 
+describe('subNatural', function () {
+  it('sub 0 - 0', function () {
+    assert.equal(subNatural(0, 0), 0);
+  });
+});
 
